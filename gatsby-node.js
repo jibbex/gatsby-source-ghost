@@ -157,5 +157,17 @@ exports.sourceNodes = ({emitter, actions}, configOptions) => {
 
 // Secondary point in build where we have to create fake Nodes
 exports.onPreExtractQueries = ({emitter, actions}) => {
-    createTemporaryFakeNodes({emitter, actions});
+    /*
+    I added 'createSchemaCustomization' in my gatsby-node.js because I was 
+    suddenly not able to run gatsby in development mode and gatsby-cli suggested it. 
+    Worked me. 
+    
+    But now there was another problem... 
+    
+    Apparently the build also ran error-free. But my first record in allGhostPost was the fake Node.
+    
+    I have these Nodes in my gatsby-node.js allready defined and after I commented the next line out, it finally worked.
+    */
+    
+    //createTemporaryFakeNodes({emitter, actions});
 };
